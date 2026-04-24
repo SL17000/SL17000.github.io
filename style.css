@@ -1,104 +1,64 @@
-/* Reset y Estilos Base */
 * { box-sizing: border-box; }
 
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
+    margin: 0; padding: 0;
+    height: 100vh; width: 100vw;
     font-family: 'Segoe UI', system-ui, sans-serif;
-    display: flex;
-    overflow: hidden;
-    background-color: #ffffff;
+    display: flex; overflow: hidden;
+    background-color: #fff;
 }
 
-/* Contenedor de Información */
 #sidebar {
     background: #2c3e50;
     color: white;
-    padding: 20px;
+    padding: 25px;
     z-index: 1000;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
 }
 
-#sidebar h1 { font-size: 1.6rem; margin-top: 0; color: #81c784; }
-#sidebar p { font-size: 0.95rem; opacity: 0.9; }
+#sidebar h1 { font-size: 1.5rem; margin: 0; color: #81c784; text-align: center; }
 
-/* Mapa */
-#map {
-    flex-grow: 1;
-    height: 100vh;
-    background-color: #ffffff;
+#map { flex-grow: 1; height: 100vh; }
+
+.placeholder-text {
+    text-align: center;
+    opacity: 0.7;
+    font-style: italic;
+    margin-top: 40px;
 }
 
-/* Botones de Navegación */
-.menu-secciones button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 8px;
-    background: #34495e;
-    color: white;
-    border: 1px solid #455a64;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: left;
-    font-size: 0.9rem;
-    transition: background 0.3s;
-}
-
-.menu-secciones button:hover { background: #1abc9c; }
-
-/* El Botón de la Ficha Técnica (Verde) */
+/* Botón Verde de Ficha */
 .btn-ficha {
     display: block;
     width: 100%;
-    margin-top: 15px;
-    padding: 14px;
+    margin-top: 20px;
+    padding: 15px;
     background: #27ae60 !important;
     color: white !important;
     text-decoration: none;
     text-align: center;
     border-radius: 8px;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.btn-ficha:active { transform: scale(0.98); }
-
-/* --- DISEÑO PARA COMPUTADORA --- */
+/* --- RESPONSIVE --- */
 @media (min-width: 769px) {
-    body { flex-direction: row; }
-    #sidebar { width: 360px; height: 100vh; }
+    #sidebar { width: 350px; height: 100vh; }
 }
 
-/* --- DISEÑO PARA MÓVIL --- */
 @media (max-width: 768px) {
     body { flex-direction: column; }
-
-    #map {
-        width: 100%;
-        height: 40vh; /* El mapa ocupa el 40% superior */
-        order: 1;
+    #map { height: 55vh; order: 1; }
+    #sidebar { 
+        height: 45vh; order: 2; 
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
     }
-
-    #sidebar {
-        width: 100%;
-        height: 60vh; /* La info ocupa el 60% inferior (MÁS ESPACIO) */
-        order: 2;
-        box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
-        padding: 20px;
-        border-radius: 20px 20px 0 0; /* Bordes redondeados arriba */
-        padding-bottom: 60px; /* Espacio extra para que el scroll no tape el botón */
-    }
-
-    #sidebar h1 { font-size: 1.4rem; }
 }
 
-/* Animación de entrada */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
