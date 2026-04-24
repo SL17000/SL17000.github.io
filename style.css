@@ -33,29 +33,35 @@ body, html {
 
 @media (max-width: 768px) {
     body {
-        flex-direction: column; /* Apila los elementos: mapa arriba, info abajo */
+        flex-direction: column;
+        overflow: hidden; /* Evita que rebote toda la pantalla */
     }
 
     #sidebar {
         width: 100%;
-        height: 40vh; /* La info ocupa el 40% de la pantalla abajo */
-        order: 2;    /* Lo manda abajo */
-        box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+        height: 50vh; /* Le damos un poquito más de espacio (la mitad de la pantalla) */
+        order: 2;
         padding: 15px;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+        
+        /* ESTO ARREGLA EL DESPLAZAMIENTO */
+        overflow-y: scroll !important; /* Fuerza el scroll vertical */
+        -webkit-overflow-scrolling: touch; /* Hace que el scroll sea suave en iPhone/Android */
+        padding-bottom: 80px; /* ESPACIO EXTRA al final para que el botón no quede pegado al borde */
     }
 
     #map {
         width: 100%;
-        height: 60vh; /* El mapa ocupa el 60% arriba */
-        order: 1;    /* Lo manda arriba */
+        height: 50vh; /* El mapa toma la otra mitad */
+        order: 1;
     }
 
-    h1 { font-size: 1.5rem; margin-bottom: 5px; }
-    .menu-secciones h3 { font-size: 1rem; margin: 5px 0; }
-    
-    /* Botones más cómodos para el pulgar */
+    /* Ajuste de botones para que ocupen menos espacio vertical */
     .menu-secciones button {
         padding: 8px;
-        font-size: 0.9rem;
+        margin-bottom: 5px;
+        font-size: 0.8rem;
     }
+
+    h1 { font-size: 1.2rem; margin-bottom: 5px; }
 }
