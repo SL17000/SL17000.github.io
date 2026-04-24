@@ -1,78 +1,39 @@
 * { box-sizing: border-box; }
+body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; overflow: hidden; }
 
-body, html {
-    margin: 0; padding: 0;
-    height: 100vh; width: 100vw;
-    font-family: 'Segoe UI', system-ui, sans-serif;
+#main-container {
     display: flex;
-    overflow: hidden;
-    background-color: #fff;
+    height: 100vh;
+    width: 100vw;
 }
 
-/* --- ESTILO PC (Por defecto) --- */
+#map { flex-grow: 1; background: #eee; }
+
 #sidebar {
-    width: 380px; /* Ancho fijo para que la PC no lo rompa */
-    flex-shrink: 0; /* EVITA QUE SE DAÑE EN PC */
+    width: 350px;
     background: #2c3e50;
     color: white;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-}
-
-#sidebar-scroll {
-    padding: 30px;
+    padding: 20px;
     overflow-y: auto;
-    height: 100%;
-    padding-bottom: 100px; /* Colchón inferior */
 }
 
-#map {
-    flex-grow: 1;
-    height: 100vh;
-    background-color: #f8f9fa;
-}
+#titulo-app { margin-top: 0; color: #81c784; font-size: 1.4rem; }
 
-.main-title { font-size: 1.6rem; margin: 0; color: #81c784; text-align: center; }
-
-/* El Botón Verde */
 .btn-ficha {
     display: block;
-    width: 100%;
-    margin-top: 25px;
-    padding: 16px;
-    background: #27ae60 !important;
-    color: white !important;
-    text-decoration: none;
+    background: #27ae60;
+    color: white;
     text-align: center;
-    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 8px;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Animación de entrada */
-.animado {
-    animation: entradaSuave 0.5s ease-out forwards;
-}
-
-@keyframes entradaSuave {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- ESTILO MÓVIL (Ajuste automático) --- */
+/* AJUSTE PARA MÓVIL */
 @media (max-width: 768px) {
-    body { flex-direction: column; }
-    
-    #map { 
-        height: 40vh; /* Mapa arriba */
-        width: 100%;
-    }
-    
-    #sidebar { 
-        width: 100%;
-        height: 60vh; /* Info abajo con más espacio */
-        border-radius: 25px 25px 0 0;
-        box-shadow: 0 -10px 30px rgba(0,0,0,0.4);
-    }
+    #main-container { flex-direction: column; }
+    #map { height: 50vh; width: 100%; }
+    #sidebar { width: 100%; height: 50vh; }
 }

@@ -2,28 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioMapa UPTMA</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- El Sidebar ahora es independiente y fuerte -->
-    <div id="sidebar">
-        <div id="sidebar-scroll">
-            <h1 class="main-title">🌱 BioMapa UPTMA</h1>
-            <hr style="border:0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-            
+    <div id="main-container">
+        <div id="map"></div>
+        <div id="sidebar">
+            <h2 id="titulo-app">🌱 BioMapa UPTMA</h2>
             <div id="info-suelo">
-                <p class="placeholder-text">Selecciona un punto en el mapa para ver su información técnica.</p>
+                <p>Toca un punto en el mapa para ver su información.</p>
             </div>
         </div>
     </div>
-
-    <!-- El Mapa ahora tiene su propio espacio garantizado -->
-    <div id="map"></div>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
