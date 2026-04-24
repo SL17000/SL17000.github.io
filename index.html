@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BioMapa UPTMA</title>
-    <!-- CSS de Leaflet -->
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,10 +16,9 @@
         
         <div class="menu-secciones">
             <h3>Sectores de Suelo</h3>
-            <!-- Los números son: Latitud, Longitud, Zoom, Nombre -->
-            <button onclick="irASector(500, 500, 0, 'Zona Norte - Franco Arenoso')">Sector Norte</button>
-            <button onclick="irASector(400, 1200, 1, 'Zona Sur - Arcilloso')">Sector Sur</button>
-            <button onclick="irASector(480, 900, 1, 'Zona Central - Húmeda')">Sector Central</button>
+            <button onclick="irASector(500, 500, 0, 'Sector Norte')">Sector Norte</button>
+            <button onclick="irASector(400, 1200, 1, 'Sector Sur')">Sector Sur</button>
+            <button onclick="irASector(480, 900, 1, 'Sector Central')">Sector Central</button>
         </div>
 
         <hr>
@@ -28,10 +27,9 @@
         </div>
     </div>
 
-    <!-- ESTE DIV ES VITAL, NO LO BORRES -->
     <div id="map"></div>
 
-    <!-- Scripts -->
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
