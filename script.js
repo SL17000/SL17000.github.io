@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
         minZoom: -1
     });
 
-    // Guardamos el mapa en una ventana global para que los botones lo encuentren
+    // Guardamos el mapa en una ventana global para los botones
     window.miMapa = map;
 
-    // 2. Definir dimensiones y cargar imagen
+    // 2. Cargar imagen del mapa
     var bounds = [[0, 0], [1000, 1500]]; 
     var image = L.imageOverlay('fotomapa/mapa.png', bounds).addTo(map);
     map.fitBounds(bounds);
@@ -19,22 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             nombre: "Paragüita",
             especie: "Cyperus alternifolius",
-            coords: [161.8, 1217.1], // <--- AQUÍ PUSE TUS NÚMEROS
+            coords: [161.8, 1217.1],
             suelo: "Zona Húmeda / Arcillosa",
             descripcion: "Planta ideal para fitorremediación y control de erosión.",
             link: "fauna/paraguita.html"
-        },
-        // Cuando quieras agregar otro árbol, pon una COMA aquí arriba y copia esto:
-        /*
-        {
-            nombre: "Nombre del Árbol 2",
-            especie: "Nombre Científico",
-            coords: [obten_las_coordenadas_haciendo_clic],
-            suelo: "Tipo de suelo",
-            descripcion: "Breve descripción",
-            link: "fauna/archivo_nuevo.html"
         }
-        */
     ];
 
     // --- FUNCIÓN PARA ACTUALIZAR EL MENÚ LATERAL ---
@@ -54,28 +43,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- COLOCAR MARCADORES ---
     puntos.forEach(function(punto) {
         var marker = L.marker(punto.coords).addTo(map);
-        
         marker.on('click', function() {
             actualizarSidebar(punto);
         });
-
         marker.bindPopup(`<b>${punto.nombre}</b><br>Haz clic para ver detalles.`);
     });
 
-    // --- DETECTOR DE COORDENADAS (Para que tú las veas en la consola) ---
+    // --- DETECTOR DE COORDENADAS PARA LA CONSOLA ---
     map.on('click', function(e) {
         console.log("Coordenadas detectadas: [" + e.latlng.lat.toFixed(1) + ", " + e.latlng.lng.toFixed(1) + "]");
     });
 
-});
+    // --- ESTO ES LO NUEVO: Reajusta el mapa si cambias el tamaño de pantalla ---
+    window.addEventListener('resize', function() {
+        map.invalidateSize();
+    });
 
-// --- FUNCIÓN PARA LOS BOTONES DE SECTOR (Fuera del DOMContentLoaded) ---
+}); // Aquí termina el DOMContentLoaded
+
+// --- FUNCIÓN PARA LOS BOTONES DE SECTOR ---
 window.irASector = function(lat, lng, zoom, info) {
     window.miMapa.flyTo([lat, lng], zoom);
     document.getElementById('info-suelo').innerHTML = `
         <div style="animation: fadeIn 0.5s;">
             <h3 style="color: #3498db;">Sector: ${info}</h3>
-            <p>Información técnica sobre la composición del suelo en esta zona.</p>
+            <p>Composición técnica del suelo en esta área.</p>
         </div>
     `;
 };
