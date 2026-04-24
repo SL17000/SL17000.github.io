@@ -1,0 +1,18 @@
+<!-- Ejemplo básico de detalle.html -->
+<script>
+    // Obtener el ID de la URL
+    const params = new URLSearchParams(window.location.search);
+    const idArbol = params.get('id');
+
+    // Aquí podrías tener un objeto con toda la información técnica
+    const datosTecnicos = {
+        "01": { nombre: "Roble Real", ph: "6.5", riego: "Moderado", edad: "40 años" },
+        "02": { nombre: "Pino Silvestre", ph: "5.5", riego: "Bajo", edad: "15 años" }
+    };
+
+    const miArbol = datosTecnicos[idArbol];
+
+    document.write(`<h1>Ficha Técnica: ${miArbol.nombre}</h1>`);
+    document.write(`<p>PH del suelo: ${miArbol.ph}</p>`);
+    // ... así con todo
+</script>

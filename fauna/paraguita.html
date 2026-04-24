@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Técnica: Paragüita</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --secondary: #81c784;
+            --dark: #1b5e20;
+            --light: #f1f8e9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=500&q=80'); /* Imagen genérica, puedes cambiarla */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header h1 { margin: 0; font-size: 2.5rem; }
+        .header p { font-style: italic; font-size: 1.2rem; opacity: 0.9; }
+
+        .container { padding: 20px; max-width: 600px; margin: auto; }
+
+        .badge-container {
+            display: flex;
+            gap: 10px;
+            margin-top: -30px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            background: var(--light);
+            padding: 15px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        h2 { color: var(--dark); border-bottom: 2px solid var(--secondary); padding-bottom: 5px; }
+
+        .taxonomy table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .taxonomy td { padding: 5px; border-bottom: 1px solid #ddd; }
+        .taxonomy td:first-child { font-weight: bold; color: var(--primary); }
+
+        .btn-back {
+            display: block;
+            text-align: center;
+            background: var(--dark);
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .icon-box { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 15px; }
+        .icon { font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Paragüita</h1>
+        <p>Cyperus alternifolius</p>
+    </div>
+
+    <div class="badge-container">
+        <span class="badge">Altura: 0.5–1.5 m</span>
+        <span class="badge">Origen: Madagascar</span>
+    </div>
+
+    <div class="container">
+        
+        <div class="section">
+            <strong>Rol Principal:</strong> Control de erosión y retención de humedad. <br>
+            <strong>Clasificación:</strong> Herbácea perenne de porte palustre.
+        </div>
+
+        <h2>Taxonomía</h2>
+        <div class="taxonomy">
+            <table>
+                <tr><td>Reino</td><td>Plantae</td></tr>
+                <tr><td>Familia</td><td>Cyperaceae</td></tr>
+                <tr><td>Género</td><td>Cyperus</td></tr>
+                <tr><td>Especie</td><td>Cyperus alternifolius</td></tr>
+            </table>
+        </div>
+
+        <h2>Aporte al Suelo y Ecosistema</h2>
+        <div class="icon-box">
+            <span class="icon">💧</span>
+            <div>
+                <strong>Fitorremediación:</strong> Limpieza de aguas y suelos. Absorbe metales pesados, nitratos y fosfatos.
+            </div>
+        </div>
+        <div class="icon-box">
+            <span class="icon">🌱</span>
+            <div>
+                <strong>Prevención de Erosión:</strong> Su sistema de rizomas "amarra" la tierra en orillas y canales.
+            </div>
+        </div>
+        <div class="icon-box">
+            <span class="icon">🌬️</span>
+            <div>
+                <strong>Oxigenación:</strong> Mantiene niveles de oxígeno en sustratos lodosos para microorganismos.
+            </div>
+        </div>
+
+        <h2>Controlador Biológico</h2>
+        <div class="section" style="background: #e3f2fd; border-color: #2196f3;">
+            <p><strong>Refugio de Depredadores:</strong> Sus brácteas atraen libélulas, ranas y arañas que controlan mosquitos.</p>
+            <p><strong>Barrera de Filtración:</strong> Atrapa esporas de hongos antes de que lleguen a plantas sensibles.</p>
+            <p><strong>Bioindicador:</strong> Sus puntas revelan la calidad del agua o contaminantes de forma inmediata.</p>
+        </div>
+
+        <!-- Busca en tu archivo paraguita.html la etiqueta del botón volver y cámbiala por esta: -->
+    <a href="../index.html" class="btn-back">⬅ VOLVER AL MAPA</a>
+    </div>
+
+</body>
+</html>

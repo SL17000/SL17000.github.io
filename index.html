@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioMapa UPTMA</title>
+    <!-- CSS de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <h1>🌱 BioMapa UPTMA</h1>
+        <p>Explora los sectores y la vegetación.</p>
+        
+        <div class="menu-secciones">
+            <h3>Sectores de Suelo</h3>
+            <!-- Los números son: Latitud, Longitud, Zoom, Nombre -->
+            <button onclick="irASector(500, 500, 0, 'Zona Norte - Franco Arenoso')">Sector Norte</button>
+            <button onclick="irASector(400, 1200, 1, 'Zona Sur - Arcilloso')">Sector Sur</button>
+            <button onclick="irASector(480, 900, 1, 'Zona Central - Húmeda')">Sector Central</button>
+        </div>
+
+        <hr>
+        <div id="info-suelo">
+            <p><i>Haz clic en un árbol o sector para ver su información técnica.</i></p>
+        </div>
+    </div>
+
+    <!-- ESTE DIV ES VITAL, NO LO BORRES -->
+    <div id="map"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
