@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Técnica: Palma Jardinera</title>
+    <style>
+        :root { --primary: #2e7d32; --secondary: #81c784; --dark: #1b5e20; --light: #f1f8e9; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; background-color: #fff; }
+        .header { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+            color: white; 
+            text-align: center; 
+            padding: 80px 20px; 
+        }
+        .header h1 { margin: 0; font-size: 2.8rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .header p { font-style: italic; font-size: 1.3rem; opacity: 0.9; }
+        .container { padding: 20px; max-width: 600px; margin: auto; }
+        .badge-container { display: flex; gap: 10px; margin-top: -30px; justify-content: center; margin-bottom: 20px; }
+        .badge { background: var(--primary); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; }
+        .section-summary { background: var(--light); padding: 15px; border-left: 5px solid var(--primary); margin-bottom: 20px; border-radius: 0 8px 8px 0; }
+        h2 { color: var(--dark); border-bottom: 2px solid var(--secondary); padding-bottom: 5px; }
+        .taxonomy table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .taxonomy td { padding: 8px; border-bottom: 1px solid #eee; }
+        .taxonomy td:first-child { font-weight: bold; color: var(--primary); width: 40%; }
+        .icon-box { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
+        .icon { font-size: 1.5rem; }
+        .control-box { background: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; border-radius: 0 8px 8px 0; }
+        .btn-back { display: block; text-align: center; background: var(--dark); color: white; padding: 15px; text-decoration: none; border-radius: 8px; margin-top: 40px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Palma Jardinera</h1>
+        <p>Dypsis lutescens</p>
+    </div>
+    <div class="badge-container">
+        <span class="badge">Regulación Térmica</span>
+        <span class="badge">NASA Clean Air</span>
+    </div>
+    <div class="container">
+        <div class="section-summary">
+            <strong>Rol Principal:</strong> Microclima y purificación ambiental.<br>
+            <strong>Clasificación:</strong> Palma perenne, multicaule.
+        </div>
+        <h2>Taxonomía</h2>
+        <div class="taxonomy">
+            <table>
+                <tr><td>Reino</td><td>Plantae</td></tr>
+                <tr><td>Familia</td><td>Arecaceae</td></tr>
+                <tr><td>Género</td><td>Dypsis</td></tr>
+                <tr><td>Especie</td><td>D. lutescens</td></tr>
+            </table>
+        </div>
+        <h2>Aporte al Suelo y Ecosistema</h2>
+        <div class="icon-box"><span class="icon">🌡️</span><div><strong>Temperatura:</strong> Reduce drásticamente el calor del suelo a su alrededor.</div></div>
+        <div class="icon-box"><span class="icon">🌬️</span><div><strong>Purificación:</strong> Elimina toxinas del aire (xileno y amoníaco).</div></div>
+        <h2>Control Biológico</h2>
+        <div class="control-box">
+            <p><strong>Filtro Físico:</strong> Atrapa polvo y virus transportados por el viento.</p>
+            <p><strong>Refugio:</strong> Lugar perfecto para arañas depredadoras de plagas.</p>
+        </div>
+        <a href="../index.html" class="btn-back">⬅ VOLVER AL MAPA</a>
+    </div>
+</body>
+</html>
