@@ -2,22 +2,90 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioMapa UPTMA</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vivero UPTMA - Catálogo Digital</title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style_landing.css">
 </head>
 <body>
-    <div id="main-container">
-        <div id="map"></div>
-        <div id="sidebar">
-            <h2 id="titulo-app">🌱 BioMapa UPTMA</h2>
-            <div id="info-suelo">
-                <p>Toca un punto en el mapa para ver su información.</p>
+
+    <nav class="navbar">
+        <div class="logo">🌿 VIVERO | UPTMA</div>
+        <div class="nav-links">
+            <a href="mapa.html">BioMapa</a>
+            <a href="equipo.html">Equipo</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content" data-aos="zoom-out">
+            <span class="badge">Servicio Comunitario UPTMA - MINEC</span>
+            <h1>Catálogo Digital de Especies Vegetales</h1>
+            <p class="hero-subtext">Explora la biodiversidad de nuestra universidad a través de un sistema interactivo.</p>
+            <a href="mapa.html" class="btn-main">IR AL BIOMAPA</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN MISION COMPACTADA -->
+    <section class="info-section texture-light">
+        <div class="container grid">
+            <div class="info-text" data-aos="fade-right">
+                <span class="label">Nuestra Misión</span>
+                <h2>Preservación Ambiental</h2>
+                <p>En colaboración con el <b>MINEC</b>, documentamos la flora del campus para transformar el vivero en un espacio de aprendizaje accesible.</p>
+                <div class="check-list">
+                    <div data-aos="fade-up" data-aos-offset="0"><i class="fas fa-check-circle"></i> Catalogación detallada de especies.</div>
+                    <div data-aos="fade-up" data-aos-offset="0"><i class="fas fa-check-circle"></i> Fomento del cuidado ambiental.</div>
+                    <div data-aos="fade-up" data-aos-offset="0"><i class="fas fa-map-marked-alt"></i> Mapeo y Geolocalización.</div>
+                </div>
+            </div>
+            <div class="info-img" data-aos="zoom-in">
+                <img src="foto/plantulas.jpg" alt="Vivero UPTMA">
             </div>
         </div>
-    </div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js"></script>
+    </section>
+
+    <section class="vivero-section texture-grey">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-down">El Proyecto en Detalle</h2>
+            <div class="vivero-cards">
+                <div class="v-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Documentación</h3>
+                    <p>Fichas técnicas con nombres científicos y aportes de cada especie.</p>
+                </div>
+                <div class="v-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card-icon"><i class="fas fa-qrcode"></i></div>
+                    <h3>Identificación QR</h3>
+                    <p>Acceso instantáneo a la biografía de la planta desde tu móvil.</p>
+                </div>
+                <div class="v-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="card-icon"><i class="fas fa-location-dot"></i></div>
+                    <h3>Geolocalización</h3>
+                    <p>Ubicación exacta de cada ejemplar para facilitar su estudio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER FINAL CON TEXTOS REDUCIDOS -->
+    <section class="final-cta">
+        <div class="cta-content" data-aos="zoom-in">
+            <h2>Conocer es el primer paso para proteger</h2>
+            <p class="cta-subtext">Herramienta informativa para la comunidad universitaria.</p>
+            <a href="mapa.html" class="btn-main">EMPEZAR RECORRIDO</a>
+        </div>
+    </section>
+
+    <footer class="mini-footer">
+        <p>UPTMA - MINEC © 2026 | Servicio Comunitario</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
 </body>
 </html>

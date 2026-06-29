@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BioMapa UPTMA</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <nav class="navbar">
+    <div class="logo">🌿 VIVERO | UPTMA</div>
+    <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="mapa.html" style="color: #27ae60;">BioMapa</a>
+        <a href="equipo.html">Equipo</a>
+    </div>
+</nav>
+
+    <!-- CONTENEDOR PRINCIPAL AJUSTADO -->
+    <div id="main-container">
+        <div id="map"></div>
+        
+        <div id="sidebar">
+            <h2 id="titulo-app">🌱 BioMapa Interactivo</h2>
+            <div id="info-suelo">
+                <p class="placeholder">Toca un marcador en el mapa para ver la información detallada de la especie.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
