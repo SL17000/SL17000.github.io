@@ -11,7 +11,7 @@
 
     <style>
         /* =========================================
-           VARIABLES Y DISEÑO DE FONDO
+           VARIABLES Y DISEÑO DE FONDO (IGUAL AL ANTERIOR)
            ========================================= */
         :root {
             --primary: #27ae60;
@@ -27,105 +27,123 @@
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background-color: var(--bg-canvas);
-            /* TEXTURA TOPOGRÁFICA */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='152' height='152' viewBox='0 0 152 152'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2327ae60' fill-opacity='0.06'%3E%3Cpath d='M152 150c-.07 0-.13 0-.2 0H.2l-.2 0V.2L.2 0h151.6l.2 0v150zm-2-2V2H2v146h148zM75 73a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 10a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0 10a10 10 0 1 0 0-20 10 10 0 0 0 0 20zm0 10a14 14 0 1 0 0-28 14 14 0 0 0 0 28zM150 75c0-41.42-33.58-75-75-75S0 33.58 0 75s33.58 75 75 75 75-33.58 75-75z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             color: #2c3e50;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* NAVBAR */
+        /* =========================================
+           NAVBAR (LOGO AHORA ES LINK)
+           ========================================= */
         .navbar {
             padding: 0 10%; display: flex; justify-content: space-between; align-items: center;
-            position: fixed; top: 0; width: 100%; height: 75px;
+            position: fixed; top: 0; width: 100%; height: 70px;
             background-color: var(--dark-forest);
             background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 100% 4px; z-index: 5000; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            background-size: 100% 4px; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            backdrop-filter: blur(2px);
         }
-        .logo { font-weight: 800; font-size: 1.3rem; color: var(--primary); }
-        .nav-links a { text-decoration: none; margin-left: 25px; color: #f1f2f6; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        
+        /* Estilo del logo link */
+        .logo { 
+            font-weight: 800; font-size: 1.3rem; color: var(--primary); 
+            text-decoration: none; letter-spacing: 1px; transition: 0.3s;
+        }
+        .logo:hover { opacity: 0.8; }
 
-        /* HEADER */
-        .team-header { padding: 140px 20px 60px; text-align: center; }
-        .team-header h1 { font-size: 3rem; color: var(--dark-forest); font-weight: 900; letter-spacing: -1px; }
-        .team-header p { font-size: 1.25rem; color: #4b5563; max-width: 850px; margin: 15px auto; line-height: 1.5; }
-
-        /* LISTA DE EQUIPO */
-        .team-list {
-            max-width: 1000px;
-            margin: 0 auto 120px;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { 
+            text-decoration: none; margin-left: 25px; color: #f1f2f6; font-weight: 600; 
+            font-size: 0.85rem; text-transform: uppercase; position: relative; transition: 0.3s;
         }
 
-        /* TARJETA HORIZONTAL */
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+            background-color: var(--primary); transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* =========================================
+           CONTENIDO
+           ========================================= */
+        .team-header { padding: 130px 20px 50px; text-align: center; }
+        .team-header h1 { font-size: 2.8rem; color: var(--dark-forest); font-weight: 900; }
+        .team-header p { font-size: 1.2rem; color: #4b5563; max-width: 800px; margin: 10px auto; }
+
+        .team-list { max-width: 1000px; margin: 0 auto 50px; padding: 0 20px; display: flex; flex-direction: column; gap: 45px; }
+
         .member-row {
-            background: white;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            padding: 50px;
-            min-height: 320px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
-            border-left: 12px solid transparent;
-            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border-right: 1px solid rgba(0,0,0,0.03);
+            background: white; border-radius: 30px; display: flex; align-items: center;
+            padding: 45px; min-height: 300px; box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+            border-left: 12px solid transparent; transition: 0.4s ease;
         }
-        .member-row:hover { transform: translateY(-5px); box-shadow: 0 25px 60px rgba(0,0,0,0.12); }
+        .member-row:hover { transform: translateY(-5px); box-shadow: 0 25px 60px rgba(0,0,0,0.1); }
 
         .info-line { border-left-color: var(--informatica); }
         .agro-line { border-left-color: var(--agro); }
         .admin-line { border-left-color: var(--admin); }
 
         .member-img {
-            width: 180px; height: 180px;
-            border-radius: 25px;
-            object-fit: cover;
-            flex-shrink: 0;
-            background: #f8fafc;
-            margin-right: 50px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 160px; height: 160px; border-radius: 25px; object-fit: cover;
+            flex-shrink: 0; margin-right: 45px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        .member-info { flex-grow: 1; }
-
         .pnf-badge {
-            display: inline-block; padding: 6px 16px; border-radius: 8px;
-            font-size: 0.75rem; font-weight: 800; color: white;
-            text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px;
+            display: inline-block; padding: 5px 14px; border-radius: 8px;
+            font-size: 0.7rem; font-weight: 800; color: white; text-transform: uppercase; margin-bottom: 10px;
         }
         .tag-info { background: var(--informatica); }
         .tag-agro { background: var(--agro); }
         .tag-admin { background: var(--admin); }
 
-        .member-info h3 { font-size: 2.2rem; color: var(--dark-forest); margin-bottom: 5px; }
-        .member-role { font-weight: 700; color: var(--primary); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px; }
-        
-        /* DESCRIPCIÓN GRANDE Y LEGIBLE */
-        .member-desc { 
-            font-size: 1.15rem; 
-            color: #4b5563; 
-            line-height: 1.8; 
-            max-width: 650px;
-            font-style: italic; /* Toque personal */
+        .member-info h3 { font-size: 2rem; color: var(--dark-forest); margin-bottom: 5px; }
+        .member-role { font-weight: 700; color: var(--primary); font-size: 1rem; margin-bottom: 12px; text-transform: uppercase; }
+        .member-desc { font-size: 1.1rem; color: #4b5563; line-height: 1.7; font-style: italic; }
+
+        /* =========================================
+           BOTÓN VOLVER AL INICIO (NUEVO)
+           ========================================= */
+        .container-btn-back {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .btn-volver-final {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            transition: 0.3s;
+        }
+        .btn-volver-final:hover {
+            background-color: #2ecc71;
+            transform: translateY(-3px);
         }
 
-        /* FOOTER */
+        /* =========================================
+           FOOTER
+           ========================================= */
         .mini-footer {
-            padding: 50px; background-color: var(--dark-forest); color: #bdc3c7;
-            text-align: center; font-size: 0.85rem; font-family: "Monaco", monospace;
-            border-top: 4px solid var(--primary);
+            padding: 20px; 
+            background-color: var(--dark-forest); 
+            color: #95a5a6; 
+            text-align: center;
+            font-size: 0.75rem; 
+            font-family: "Monaco", "Lucida Console", monospace;
+            border-top: 2px solid var(--primary);
         }
 
         /* RESPONSIVO */
-        @media (max-width: 900px) {
-            .member-row { flex-direction: column; text-align: center; padding: 40px 30px; }
-            .member-img { margin-right: 0; margin-bottom: 30px; width: 150px; height: 150px; }
-            .member-info h3 { font-size: 1.8rem; }
-            .member-desc { font-size: 1rem; }
-            .team-header h1 { font-size: 2.5rem; }
+        @media (max-width: 850px) {
+            .member-row { flex-direction: column; text-align: center; padding: 35px 25px; }
+            .member-img { margin-right: 0; margin-bottom: 25px; width: 140px; height: 140px; }
+            .team-header h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
         }
     </style>
@@ -133,76 +151,79 @@
 <body>
 
     <nav class="navbar">
-    <div class="logo">🌿 VIVERO | UPTMA</div>
-    <div class="nav-links">
-        <a href="index.html">Inicio</a>
-        <a href="mapa.html">BioMapa</a>
-        <a href="equipo.html">Equipo</a>
-    </div>
-</nav>
+        <!-- LOGO AHORA ES UN LINK -->
+        <a href="index.html" class="logo">🌿 VIVERO | UPTMA</a>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="mapa.html">BioMapa</a>
+            <a href="equipo.html" style="color: #27ae60;">Equipo</a>
+        </div>
+    </nav>
 
     <header class="team-header">
         <div data-aos="fade-down">
             <h1>Nuestro Equipo</h1>
-            <p>Somos un grupo multidisciplinario de estudiantes de la UPTMA que une la tecnología, la agroalimentación y la gestión administrativa para documentar y proteger la biodiversidad de nuestra universidad.</p>
+            <p>Somos un equipo multidisciplinario trabajando por la preservación de nuestro entorno universitario.</p>
         </div>
     </header>
 
     <main class="team-list">
         
-        <!-- ERIC ANDRADE -->
-        <article class="member-row info-line" data-aos="fade-up">
+        <!-- Tarjetas de equipo (Exactamente igual a la anterior) -->
+        <article class="member-row info-line" data-aos="fade-right">
             <img src="foto/eric.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Eric+Andrade&background=2980b9&color=fff&size=200'">
             <div class="member-info">
                 <span class="pnf-badge tag-info">PNF Informática</span>
                 <h3>Eric Andrade</h3>
                 <p class="member-role">Programador y Arquitectura Web</p>
-                <p class="member-desc">"Me encargo de dar vida a la arquitectura digital del BioMapa. Mi trabajo consiste en programar la lógica del sitio y el sistema de geolocalización para asegurar que cada usuario pueda consultar la información botánica de forma rápida y precisa."</p>
+                <p class="member-desc">"Me encargo de dar vida a la arquitectura digital del BioMapa. Mi trabajo consiste en programar la lógica del sitio y el sistema de geolocalización para asegurar que cada usuario pueda consultar la información de forma rápida."</p>
             </div>
         </article>
 
-        <!-- LUIS NUÑEZ -->
-        <article class="member-row info-line" data-aos="fade-up">
+        <article class="member-row info-line" data-aos="fade-left">
             <img src="foto/luis.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Luis+Nuñez&background=2980b9&color=fff&size=200'">
             <div class="member-info">
                 <span class="pnf-badge tag-info">PNF Informática</span>
                 <h3>Luis Nuñez</h3>
                 <p class="member-role">Diseño y Experiencia de Usuario</p>
-                <p class="member-desc">"Me enfoco en el diseño visual y en la optimización de los componentes interactivos. Mi objetivo es garantizar que la web sea fácil de usar en cualquier dispositivo, logrando que el recorrido virtual sea una experiencia fluida e intuitiva para todos."</p>
+                <p class="member-desc">"Me enfoco en el diseño visual y la optimización de los componentes interactivos. Mi objetivo es garantizar que la web sea fácil de usar en cualquier dispositivo, logrando que el recorrido sea una experiencia fluida."</p>
             </div>
         </article>
 
-        <!-- YAEELIN FRANCO -->
-        <article class="member-row agro-line" data-aos="fade-up">
+        <article class="member-row agro-line" data-aos="fade-right">
             <img src="foto/yaeelin.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Yaeelin+Franco&background=27ae60&color=fff&size=200'">
             <div class="member-info">
                 <span class="pnf-badge tag-agro">PNF Agroalimentación</span>
                 <h3>Yaeelin Franco</h3>
                 <p class="member-role">Investigación Técnica y Taxonomía</p>
-                <p class="member-desc">"Soy la responsable de liderar la investigación botánica en el campo. Me encargo de recolectar la información técnica y taxonómica de cada especie, traduciendo los datos biológicos en el contenido educativo que alimenta nuestras fichas digitales."</p>
+                <p class="member-desc">"Soy la responsable de liderar la investigación botánica en el campo. Me encargo de recolectar la información técnica de cada especie, traduciendo los datos biológicos en el contenido informativo de las fichas."</p>
             </div>
         </article>
 
-        <!-- FRANCISCO PRIETO -->
-        <article class="member-row admin-line" data-aos="fade-up">
+        <article class="member-row admin-line" data-aos="fade-left">
             <img src="foto/francisco.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Francisco+Prieto&background=e67e22&color=fff&size=200'">
             <div class="member-info">
                 <span class="pnf-badge tag-admin">PNF Administración</span>
                 <h3>Francisco Prieto</h3>
                 <p class="member-role">Planificación y Gestión Logística</p>
-                <p class="member-desc">"Mi función es coordinar la logística y los recursos necesarios para que el equipo pueda trabajar de forma eficiente. Me encargo de la planificación operativa y de facilitar el enlace administrativo con las instituciones que apoyan nuestro proyecto."</p>
+                <p class="member-desc">"Mi función es coordinar la logística y los recursos necesarios para que el equipo trabaje de forma eficiente. Me encargo de la planificación y de facilitar el enlace institucional con el MINEC."</p>
             </div>
         </article>
+
+        <!-- BOTÓN FINAL PARA VOLVER AL INICIO -->
+        <div class="container-btn-back" data-aos="zoom-in">
+            <a href="index.html" class="btn-volver-final">⬅ VOLVER AL INICIO</a>
+        </div>
 
     </main>
 
     <footer class="mini-footer">
-        <p>UPTMA - MINEC © 2026 | Juntos por la Preservación Ambiental</p>
+        <p>UPTMA - MINEC © 2026 | Servicio Comunitario</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 800, once: true });
     </script>
 </body>
 </html>

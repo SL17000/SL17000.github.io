@@ -7,32 +7,43 @@
     
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Estilos locales del mapa -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <nav class="navbar">
-    <div class="logo">🌿 VIVERO | UPTMA</div>
-    <div class="nav-links">
-        <a href="index.html">Inicio</a>
-        <a href="mapa.html">BioMapa</a>
-        <a href="equipo.html">Equipo</a>
-    </div>
-</nav>
+    <!-- NAVBAR INSTITUCIONAL -->
+    <nav class="navbar">
+        <div class="logo">🌿 VIVERO | UPTMA</div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="mapa.html" style="color: #27ae60;">BioMapa</a>
+            <a href="equipo.html">Equipo</a>
+        </div>
+    </nav>
 
-    <!-- CONTENEDOR PRINCIPAL AJUSTADO -->
+    <!-- CONTENEDOR PRINCIPAL -->
     <div id="main-container">
+        <!-- Espacio para el mapa interactivo -->
         <div id="map"></div>
         
+        <!-- Barra lateral de información -->
         <div id="sidebar">
             <h2 id="titulo-app">🌱 BioMapa Interactivo</h2>
+            
             <div id="info-suelo">
                 <p class="placeholder">Toca un marcador en el mapa para ver la información detallada de la especie.</p>
+            </div>
+
+            <!-- SECCIÓN DE CRÉDITOS / SERVICIO COMUNITARIO -->
+            <div class="sidebar-footer">
+                UPTMA - MINEC © 2026<br>
+                Proyecto de Servicio Comunitario<br>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Librerías y Lógica -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>

@@ -1,6 +1,6 @@
 :root {
     --primary: #27ae60;
-    --dark-forest: #161d1b; /* El color negro-verde del index */
+    --dark-forest: #161d1b; 
     --text-light: #f1f2f6;
     --bg-map: #f4f7f6;
 }
@@ -12,9 +12,12 @@ body, html {
     width: 100%;
     font-family: 'Segoe UI', sans-serif; 
     overflow: hidden; 
+    background-color: var(--bg-map);
 }
 
-/* NAVBAR (Diseño idéntico al Index) */
+/* =========================================
+   NAVBAR (IDÉNTICO AL INDEX CON ANIMACIÓN)
+   ========================================= */
 .navbar {
     padding: 0 10%;
     display: flex;
@@ -24,8 +27,10 @@ body, html {
     background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 100% 4px;
     height: 70px;
-    position: relative;
-    z-index: 5000;
+    position: fixed; /* FIJO ARRIBA */
+    top: 0;
+    width: 100%;
+    z-index: 9999;
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
@@ -39,15 +44,31 @@ body, html {
     font-weight: 600; 
     font-size: 0.85rem; 
     text-transform: uppercase; 
+    position: relative;
     transition: 0.3s;
 }
 
+/* ANIMACIÓN LÍNEA VERDE */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
 .nav-links a:hover { color: var(--primary); }
 
-/* CONTENEDOR PRINCIPAL */
+/* =========================================
+   CONTENEDOR PRINCIPAL (CON FIX DE SALTO)
+   ========================================= */
 #main-container {
     display: flex;
-    height: calc(100vh - 70px); /* Resta la altura del navbar */
+    margin-top: 70px; /* COMPENSA LA ALTURA DEL NAVBAR */
+    height: calc(100vh - 70px); 
     width: 100vw;
 }
 
@@ -57,15 +78,18 @@ body, html {
     z-index: 1;
 }
 
-/* SIDEBAR (Con el color del footer del index) */
+/* =========================================
+   SIDEBAR TEXTURIZADO CON CRÉDITOS
+   ========================================= */
 #sidebar {
     width: 380px;
     background-color: var(--dark-forest);
-    /* Misma textura que el navbar/footer */
     background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
     background-size: 100% 4px;
     color: var(--text-light);
     padding: 35px 30px;
+    display: flex;
+    flex-direction: column; /* Permite empujar los créditos al fondo */
     overflow-y: auto;
     z-index: 10;
     box-shadow: -10px 0 30px rgba(0,0,0,0.3);
@@ -81,65 +105,44 @@ body, html {
     text-align: center;
 }
 
-/* Estilos de la información de la planta */
+#info-suelo { flex-grow: 1; } /* Empuja lo que sigue hacia abajo */
 #info-suelo h2 { color: var(--primary); margin-bottom: 10px; font-size: 1.8rem; }
 #info-suelo p { margin-bottom: 15px; font-size: 1rem; line-height: 1.6; color: #d1d8e0; }
-#info-suelo b { color: var(--primary); }
 
-.placeholder {
-    opacity: 0.6;
-    font-style: italic;
-    text-align: center;
-    margin-top: 50px;
-}
+.placeholder { opacity: 0.6; font-style: italic; text-align: center; margin-top: 50px; }
 
-/* BOTONES VERDE PILL (Como en la landing) */
+/* BOTONES VERDE PILL */
 .btn-ficha {
-    display: block;
-    background: var(--primary);
-    color: white !important;
+    display: block; background: var(--primary); color: white !important;
+    text-align: center; padding: 16px; margin-top: 20px;
+    text-decoration: none; border-radius: 50px; font-weight: bold;
+    transition: 0.4s; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+.btn-ficha:hover { background: #2ecc71; transform: translateY(-3px); }
+
+/* SECCIÓN DE CRÉDITOS EN SIDEBAR */
+.sidebar-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-family: "Monaco", monospace;
+    font-size: 0.7rem;
+    color: #95a5a6;
     text-align: center;
-    padding: 16px;
-    margin-top: 20px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: 0.4s;
-    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-    border: none;
+    line-height: 1.4;
 }
 
-.btn-ficha:hover {
-    background: #2ecc71;
-    transform: translateY(-3px);
-}
-
+/* =========================================
+   RESPONSIVO MÓVIL
+   ========================================= */
 @media (max-width: 768px) {
-    #main-container { 
-        flex-direction: column; /* Mapa arriba, Info abajo */
-        height: calc(100vh - 60px); 
-    }
-
-    #map { 
-        height: 40vh; /* El mapa ocupa el 40% superior */
-        width: 100%; 
-        flex-shrink: 0;
-    }
-
+    #main-container { flex-direction: column; height: calc(100vh - 60px); margin-top: 60px; }
+    #map { height: 40vh; width: 100%; }
     #sidebar { 
-        width: 100%; 
-        height: 60vh; /* La info ocupa el resto */
-        border-radius: 25px 25px 0 0; /* Curva elegante arriba */
-        margin-top: -20px; /* Se solapa un poco con el mapa */
+        width: 100%; height: 60vh; 
+        border-radius: 25px 25px 0 0; margin-top: -20px;
         padding: 25px 20px;
-        box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
-        overflow-y: auto; /* IMPORTANTE: Permite deslizar para leer */
     }
-
-    #titulo-app { font-size: 1.3rem; margin-bottom: 15px; }
-    #info-suelo h2 { font-size: 1.5rem; }
-    #info-suelo p { font-size: 0.9rem; }
-
     .navbar { padding: 0 5%; height: 60px; }
-    .nav-links a { font-size: 0.7rem; }
+    .nav-links { display: none; }
 }
