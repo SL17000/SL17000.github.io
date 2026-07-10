@@ -16,7 +16,7 @@ body, html {
 }
 
 /* =========================================
-   NAVBAR (IDÉNTICO AL INDEX CON ANIMACIÓN)
+   NAVBAR (CON ANIMACIÓN RESTAURADA)
    ========================================= */
 .navbar {
     padding: 0 10%;
@@ -27,14 +27,23 @@ body, html {
     background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 100% 4px;
     height: 70px;
-    position: fixed; /* FIJO ARRIBA */
+    position: fixed; 
     top: 0;
     width: 100%;
     z-index: 9999;
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(2px);
 }
 
-.logo { font-weight: 800; font-size: 1.3rem; color: var(--primary); letter-spacing: 1px; }
+.logo { 
+    font-weight: 800; 
+    font-size: 1.3rem; 
+    color: var(--primary); 
+    letter-spacing: 1px; 
+    text-decoration: none; 
+    transition: 0.3s; 
+}
+.logo:hover { opacity: 0.8; }
 
 .nav-links { display: flex; gap: 25px; }
 
@@ -44,11 +53,11 @@ body, html {
     font-weight: 600; 
     font-size: 0.85rem; 
     text-transform: uppercase; 
-    position: relative;
+    position: relative; /* NECESARIO PARA LA LÍNEA */
     transition: 0.3s;
 }
 
-/* ANIMACIÓN LÍNEA VERDE */
+/* --- LA ANIMACIÓN DE LA LÍNEA VERDE --- */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -59,15 +68,21 @@ body, html {
     background-color: var(--primary);
     transition: width 0.3s ease;
 }
-.nav-links a:hover::after { width: 100%; }
-.nav-links a:hover { color: var(--primary); }
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
 
 /* =========================================
-   CONTENEDOR PRINCIPAL (CON FIX DE SALTO)
+   CONTENEDOR PRINCIPAL
    ========================================= */
 #main-container {
     display: flex;
-    margin-top: 70px; /* COMPENSA LA ALTURA DEL NAVBAR */
+    margin-top: 70px; 
     height: calc(100vh - 70px); 
     width: 100vw;
 }
@@ -79,7 +94,7 @@ body, html {
 }
 
 /* =========================================
-   SIDEBAR TEXTURIZADO CON CRÉDITOS
+   SIDEBAR TEXTURIZADO
    ========================================= */
 #sidebar {
     width: 380px;
@@ -89,7 +104,7 @@ body, html {
     color: var(--text-light);
     padding: 35px 30px;
     display: flex;
-    flex-direction: column; /* Permite empujar los créditos al fondo */
+    flex-direction: column;
     overflow-y: auto;
     z-index: 10;
     box-shadow: -10px 0 30px rgba(0,0,0,0.3);
@@ -105,7 +120,7 @@ body, html {
     text-align: center;
 }
 
-#info-suelo { flex-grow: 1; } /* Empuja lo que sigue hacia abajo */
+#info-suelo { flex-grow: 1; }
 #info-suelo h2 { color: var(--primary); margin-bottom: 10px; font-size: 1.8rem; }
 #info-suelo p { margin-bottom: 15px; font-size: 1rem; line-height: 1.6; color: #d1d8e0; }
 
@@ -120,10 +135,10 @@ body, html {
 }
 .btn-ficha:hover { background: #2ecc71; transform: translateY(-3px); }
 
-/* SECCIÓN DE CRÉDITOS EN SIDEBAR */
+/* SECCIÓN DE CRÉDITOS COMPRIMIDA */
 .sidebar-footer {
     margin-top: 40px;
-    padding-top: 20px;
+    padding: 15px 0;
     border-top: 1px solid rgba(255,255,255,0.1);
     font-family: "Monaco", monospace;
     font-size: 0.7rem;
