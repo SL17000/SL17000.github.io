@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* =========================================
-           VARIABLES Y DISEÑO DE FONDO (IGUAL AL ANTERIOR)
-           ========================================= */
         :root {
             --primary: #27ae60;
             --dark-forest: #161d1b;
@@ -33,9 +30,7 @@
             line-height: 1.6;
         }
 
-        /* =========================================
-           NAVBAR (LOGO AHORA ES LINK)
-           ========================================= */
+        /* NAVBAR */
         .navbar {
             padding: 0 10%; display: flex; justify-content: space-between; align-items: center;
             position: fixed; top: 0; width: 100%; height: 70px;
@@ -44,34 +39,23 @@
             background-size: 100% 4px; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             backdrop-filter: blur(2px);
         }
-        
-        /* Estilo del logo link */
-        .logo { 
-            font-weight: 800; font-size: 1.3rem; color: var(--primary); 
-            text-decoration: none; letter-spacing: 1px; transition: 0.3s;
-        }
-        .logo:hover { opacity: 0.8; }
+        .logo { font-weight: 800; font-size: 1.3rem; color: var(--primary); text-decoration: none; letter-spacing: 1px; }
 
         .nav-links { display: flex; gap: 25px; }
         .nav-links a { 
             text-decoration: none; margin-left: 25px; color: #f1f2f6; font-weight: 600; 
             font-size: 0.85rem; text-transform: uppercase; position: relative; transition: 0.3s;
         }
-
-        .nav-links a::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
-            background-color: var(--primary); transition: width 0.3s ease;
-        }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--primary); transition: width 0.3s ease; }
         .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover { color: var(--primary); }
 
-        /* =========================================
-           CONTENIDO
-           ========================================= */
+        /* HEADER */
         .team-header { padding: 130px 20px 50px; text-align: center; }
         .team-header h1 { font-size: 2.8rem; color: var(--dark-forest); font-weight: 900; }
         .team-header p { font-size: 1.2rem; color: #4b5563; max-width: 800px; margin: 10px auto; }
 
+        /* LISTA */
         .team-list { max-width: 1000px; margin: 0 auto 50px; padding: 0 20px; display: flex; flex-direction: column; gap: 45px; }
 
         .member-row {
@@ -86,8 +70,9 @@
         .admin-line { border-left-color: var(--admin); }
 
         .member-img {
-            width: 160px; height: 160px; border-radius: 25px; object-fit: cover;
+            width: 180px; height: 180px; border-radius: 25px; object-fit: cover;
             flex-shrink: 0; margin-right: 45px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #f8fafc;
         }
 
         .pnf-badge {
@@ -100,46 +85,22 @@
 
         .member-info h3 { font-size: 2rem; color: var(--dark-forest); margin-bottom: 5px; }
         .member-role { font-weight: 700; color: var(--primary); font-size: 1rem; margin-bottom: 12px; text-transform: uppercase; }
-        .member-desc { font-size: 1.1rem; color: #4b5563; line-height: 1.7; font-style: italic; }
+        .member-desc { font-size: 1.15rem; color: #4b5563; line-height: 1.8; font-style: italic; }
 
-        /* =========================================
-           BOTÓN VOLVER AL INICIO (NUEVO)
-           ========================================= */
-        .container-btn-back {
-            text-align: center;
-            margin-bottom: 80px;
-        }
+        .container-btn-back { text-align: center; margin-bottom: 80px; }
         .btn-volver-final {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-            transition: 0.3s;
+            display: inline-block; padding: 15px 35px; background-color: var(--primary);
+            color: white; text-decoration: none; border-radius: 50px;
+            font-weight: bold; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); transition: 0.3s;
         }
-        .btn-volver-final:hover {
-            background-color: #2ecc71;
-            transform: translateY(-3px);
-        }
+        .btn-volver-final:hover { background-color: #2ecc71; transform: translateY(-3px); }
 
-        /* =========================================
-           FOOTER
-           ========================================= */
         .mini-footer {
-            padding: 20px; 
-            background-color: var(--dark-forest); 
-            color: #95a5a6; 
-            text-align: center;
-            font-size: 0.75rem; 
-            font-family: "Monaco", "Lucida Console", monospace;
+            padding: 20px; background-color: var(--dark-forest); color: #95a5a6; 
+            text-align: center; font-size: 0.75rem; font-family: "Monaco", monospace;
             border-top: 2px solid var(--primary);
         }
 
-        /* RESPONSIVO */
         @media (max-width: 850px) {
             .member-row { flex-direction: column; text-align: center; padding: 35px 25px; }
             .member-img { margin-right: 0; margin-bottom: 25px; width: 140px; height: 140px; }
@@ -151,7 +112,6 @@
 <body>
 
     <nav class="navbar">
-        <!-- LOGO AHORA ES UN LINK -->
         <a href="index.html" class="logo">🌿 VIVERO | UPTMA</a>
         <div class="nav-links">
             <a href="index.html">Inicio</a>
@@ -169,8 +129,8 @@
 
     <main class="team-list">
         
-        <!-- Tarjetas de equipo (Exactamente igual a la anterior) -->
-        <article class="member-row info-line" data-aos="fade-right">
+        <!-- ERIC ANDRADE -->
+        <article class="member-row info-line" data-aos="fade-up">
             <img src="foto/eric.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Eric+Andrade&background=2980b9&color=fff&size=200'">
             <div class="member-info">
                 <span class="pnf-badge tag-info">PNF Informática</span>
@@ -180,17 +140,19 @@
             </div>
         </article>
 
-        <article class="member-row info-line" data-aos="fade-left">
+        <!-- LUIS NUÑEZ -->
+        <article class="member-row info-line" data-aos="fade-up">
             <img src="foto/luis.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Luis+Nuñez&background=2980b9&color=fff&size=200'">
             <div class="member-info">
                 <span class="pnf-badge tag-info">PNF Informática</span>
                 <h3>Luis Nuñez</h3>
                 <p class="member-role">Diseño y Experiencia de Usuario</p>
-                <p class="member-desc">"Me enfoco en el diseño visual y la optimización de los componentes interactivos. Mi objetivo es garantizar que la web sea fácil de usar en cualquier dispositivo, logrando que el recorrido sea una experiencia fluida."</p>
+                <p class="member-desc">"Me enfoco en el diseño visual y en la optimización de los componentes interactivos. Mi objetivo es garantizar que la web sea fácil de usar en cualquier dispositivo, logrando que el recorrido sea una experiencia fluida."</p>
             </div>
         </article>
 
-        <article class="member-row agro-line" data-aos="fade-right">
+        <!-- YAEELIN FRANCO -->
+        <article class="member-row agro-line" data-aos="fade-up">
             <img src="foto/yaeelin.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Yaeelin+Franco&background=27ae60&color=fff&size=200'">
             <div class="member-info">
                 <span class="pnf-badge tag-agro">PNF Agroalimentación</span>
@@ -200,7 +162,19 @@
             </div>
         </article>
 
-        <article class="member-row admin-line" data-aos="fade-left">
+        <!-- LUIS PRIETO (NUEVO INTEGRANTE) -->
+        <article class="member-row agro-line" data-aos="fade-up">
+            <img src="foto/luisprieto.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Luis+Prieto&background=27ae60&color=fff&size=200'">
+            <div class="member-info">
+                <span class="pnf-badge tag-agro">PNF Agroalimentación</span>
+                <h3>Luis Prieto</h3>
+                <p class="member-role">Manejo de Cultivos y Sustratos</p>
+                <p class="member-desc">"Me dedico al monitoreo directo de las especies en el vivero. Mi labor principal es garantizar que las condiciones del suelo y los nutrientes sean los adecuados para el óptimo desarrollo de cada ejemplar antes de su registro digital."</p>
+            </div>
+        </article>
+
+        <!-- FRANCISCO PRIETO -->
+        <article class="member-row admin-line" data-aos="fade-up">
             <img src="foto/francisco.jpeg" class="member-img" onerror="this.src='https://ui-avatars.com/api/?name=Francisco+Prieto&background=e67e22&color=fff&size=200'">
             <div class="member-info">
                 <span class="pnf-badge tag-admin">PNF Administración</span>
@@ -210,7 +184,6 @@
             </div>
         </article>
 
-        <!-- BOTÓN FINAL PARA VOLVER AL INICIO -->
         <div class="container-btn-back" data-aos="zoom-in">
             <a href="index.html" class="btn-volver-final">⬅ VOLVER AL INICIO</a>
         </div>
