@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BioMapa UPTMA</title>
     
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Estilos locales del mapa -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- NAVBAR INSTITUCIONAL -->
     <nav class="navbar">
-        <!-- El logo es el ÚNICO botón de retorno al inicio -->
         <a href="index.html" class="logo">🌿 VIVERO | UPTMA</a>
         <div class="nav-links">
             <a href="index.html">Inicio</a>
@@ -23,7 +19,6 @@
         </div>
     </nav>
 
-    <!-- CONTENEDOR PRINCIPAL -->
     <div id="main-container">
         <div id="map"></div>
         
@@ -34,7 +29,6 @@
                 <p class="placeholder">Toca un marcador en el mapa para ver la información detallada de la especie.</p>
             </div>
 
-            <!-- SECCIÓN DE CRÉDITOS LIMPIA -->
             <div class="sidebar-footer">
                 UPTMA - MINEC © 2026<br>
                 Proyecto de Servicio Comunitario
@@ -42,7 +36,6 @@
         </div>
     </div>
 
-    <!-- Librerías y Lógica -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>

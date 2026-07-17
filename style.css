@@ -15,9 +15,6 @@ body, html {
     background-color: var(--bg-map);
 }
 
-/* =========================================
-   NAVBAR (CON ANIMACIÓN RESTAURADA)
-   ========================================= */
 .navbar {
     padding: 0 10%;
     display: flex;
@@ -53,11 +50,10 @@ body, html {
     font-weight: 600; 
     font-size: 0.85rem; 
     text-transform: uppercase; 
-    position: relative; /* NECESARIO PARA LA LÍNEA */
+    position: relative; 
     transition: 0.3s;
 }
 
-/* --- LA ANIMACIÓN DE LA LÍNEA VERDE --- */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -77,9 +73,6 @@ body, html {
     color: var(--primary);
 }
 
-/* =========================================
-   CONTENEDOR PRINCIPAL
-   ========================================= */
 #main-container {
     display: flex;
     margin-top: 70px; 
@@ -93,9 +86,6 @@ body, html {
     z-index: 1;
 }
 
-/* =========================================
-   SIDEBAR TEXTURIZADO
-   ========================================= */
 #sidebar {
     width: 380px;
     background-color: var(--dark-forest);
@@ -126,7 +116,6 @@ body, html {
 
 .placeholder { opacity: 0.6; font-style: italic; text-align: center; margin-top: 50px; }
 
-/* BOTONES VERDE PILL */
 .btn-ficha {
     display: block; background: var(--primary); color: white !important;
     text-align: center; padding: 16px; margin-top: 20px;
@@ -135,7 +124,6 @@ body, html {
 }
 .btn-ficha:hover { background: #2ecc71; transform: translateY(-3px); }
 
-/* SECCIÓN DE CRÉDITOS COMPRIMIDA */
 .sidebar-footer {
     margin-top: 40px;
     padding: 15px 0;
@@ -147,9 +135,6 @@ body, html {
     line-height: 1.4;
 }
 
-/* =========================================
-   RESPONSIVO MÓVIL
-   ========================================= */
 @media (max-width: 768px) {
     #main-container { flex-direction: column; height: calc(100vh - 60px); margin-top: 60px; }
     #map { height: 40vh; width: 100%; }

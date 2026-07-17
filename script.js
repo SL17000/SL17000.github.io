@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Inicializar Mapa
     var map = L.map('map', {
         crs: L.CRS.Simple,
         minZoom: -1
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     L.imageOverlay('fotomapa/mapa.png', bounds).addTo(map);
     map.fitBounds(bounds);
 
-    // --- BASE DE DATOS COMPLETA ---
     var puntos = [
         { n: "Paragüita", s: "Cyperus alternifolius", c: [161.8, 1217.1], suelo: "Húmedo / Arcillosa", desc: "Ideal para fitorremediación.", link: "fauna/paraguita.html" },
         { n: "Trinitaria", s: "Bougainvillea spectabilis", c: [392.5, 1178.0], suelo: "Materia orgánica / Retención humedad", desc: "Arbusto espinoso y refugio de aves.", link: "fauna/trinitaria.html" },
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         { n: "Limoncillo", s: "Murraya paniculata", c: [425.2, 382.0], suelo: "Barrera sanitaria", desc: "Arbusto ornamental muy fragante.", link: "fauna/limoncillo.html" },
         { n: "Limonero", s: "Citrus limon", c: [411.2, 338.0], suelo: "Acidificador ligero", desc: "Repelente natural por aceites esenciales.", link: "fauna/limonero.html" },
 
-        // CASO ESPECIAL: Ambos botones ahora son verdes (#27ae60)
         { 
             n: "Sábila y Cotoperí joven", 
             s: "Aloe vera / T. oliviformis", 
@@ -42,17 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
         { n: "Palma Areca", s: "Dypsis lutescens", c: [658.1, 523.0], suelo: "Biomasa / Purificación", desc: "Mejora microclima y filtra toxinas.", link: "fauna/palma_areca.html" }
     ];
 
-    // --- FUNCIÓN PARA MOSTRAR INFORMACIÓN ---
     function actualizarSidebar(data) {
         let botonesHtml = '';
 
         if (data.links) {
-            // Genera botones múltiples (Ambos verdes)
             data.links.forEach(link => {
                 botonesHtml += `<a href="${link.url}" class="btn-ficha" style="margin-bottom: 12px; display: block;">${link.nombre}</a>`;
             });
         } else {
-            // Botón único estándar
             botonesHtml = `<a href="${data.link}" class="btn-ficha">VER FICHA TÉCNICA</a>`;
         }
 
@@ -69,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
-    // --- COLOCAR LOS MARCADORES ---
     puntos.forEach(function(p) {
         var marker = L.marker(p.c).addTo(map);
         marker.on('click', function() {
